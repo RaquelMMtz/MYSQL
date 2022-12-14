@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E6219D92-3F94-408A-9F76-8AC7FF63A5AF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ProyectoFinalMYSQL</RootNamespace>
+    <AssemblyName>ProyectoFinalMYSQL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.19.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.19.4\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.2.6\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.2.6\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.31.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.31\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZstdNet, Version=1.4.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.31\lib\net452\ZstdNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Actor.Designer.cs">
+      <DependentUpon>Actor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActorGrabacionVoz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActorGrabacionVoz.Designer.cs">
+      <DependentUpon>ActorGrabacionVoz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Animacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Animacion.Designer.cs">
+      <DependentUpon>Animacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnimacionAnimador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnimacionAnimador.Designer.cs">
+      <DependentUpon>AnimacionAnimador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Animador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Animador.Designer.cs">
+      <DependentUpon>Animador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnimadorModelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnimadorModelo.Designer.cs">
+      <DependentUpon>AnimadorModelo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Arte_Conceptual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Arte_Conceptual.Designer.cs">
+      <DependentUpon>Arte_Conceptual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Artista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Artista.Designer.cs">
+      <DependentUpon>Artista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ArtistaAreaConceptual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArtistaAreaConceptual.Designer.cs">
+      <DependentUpon>ArtistaAreaConceptual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ArtistaStoryBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArtistaStoryBoard.Designer.cs">
+      <DependentUpon>ArtistaStoryBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsistenteAnimacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsistenteAnimacion.Designer.cs">
+      <DependentUpon>AsistenteAnimacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cambio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cambio.Designer.cs">
+      <DependentUpon>Cambio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CambioDirectivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambioDirectivo.Designer.cs">
+      <DependentUpon>CambioDirectivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Colaboracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Colaboracion.Designer.cs">
+      <DependentUpon>Colaboracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColorScript.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColorScript.Designer.cs">
+      <DependentUpon>ColorScript.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compositing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compositing.Designer.cs">
+      <DependentUpon>Compositing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConexionMYSQL.cs" />
+    <Compile Include="CorreccionColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CorreccionColor.Designer.cs">
+      <DependentUpon>CorreccionColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiaPressentacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiaPressentacion.Designer.cs">
+      <DependentUpon>DiaPressentacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directivo.Designer.cs">
+      <DependentUpon>Directivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Director.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Director.Designer.cs">
+      <DependentUpon>Director.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DirectorGerente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DirectorGerente.Designer.cs">
+      <DependentUpon>DirectorGerente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Esqueletizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Esqueletizacion.Designer.cs">
+      <DependentUpon>Esqueletizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExhibicionInternacional.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExhibicionInternacional.Designer.cs">
+      <DependentUpon>ExhibicionInternacional.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExhibicionNacional.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExhibicionNacional.Designer.cs">
+      <DependentUpon>ExhibicionNacional.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fondista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fondista.Designer.cs">
+      <DependentUpon>Fondista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FxPersonaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FxPersonaje.Designer.cs">
+      <DependentUpon>FxPersonaje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gerente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gerente.Designer.cs">
+      <DependentUpon>Gerente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GrabacionVoz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GrabacionVoz.Designer.cs">
+      <DependentUpon>GrabacionVoz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guion.Designer.cs">
+      <DependentUpon>Guion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guionista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guionista.Designer.cs">
+      <DependentUpon>Guionista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Idea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Idea.Designer.cs">
+      <DependentUpon>Idea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Iluminacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Iluminacion.Designer.cs">
+      <DependentUpon>Iluminacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ingreso.Designer.cs">
+      <DependentUpon>Ingreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IngresoExhibicionInternacional.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IngresoExhibicionInternacional.Designer.cs">
+      <DependentUpon>IngresoExhibicionInternacional.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IngresoExhibicionNacional.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IngresoExhibicionNacional.Designer.cs">
+      <DependentUpon>IngresoExhibicionNacional.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Junta_Directiva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Junta_Directiva.Designer.cs">
+      <DependentUpon>Junta_Directiva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout.Designer.cs">
+      <DependentUpon>Layout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Actor.resx">
+      <DependentUpon>Actor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActorGrabacionVoz.resx">
+      <DependentUpon>ActorGrabacionVoz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Animacion.resx">
+      <DependentUpon>Animacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnimacionAnimador.resx">
+      <DependentUpon>AnimacionAnimador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Animador.resx">
+      <DependentUpon>Animador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnimadorModelo.resx">
+      <DependentUpon>AnimadorModelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Arte_Conceptual.resx">
+      <DependentUpon>Arte_Conceptual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Artista.resx">
+      <DependentUpon>Artista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ArtistaAreaConceptual.resx">
+      <DependentUpon>ArtistaAreaConceptual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ArtistaStoryBoard.resx">
+      <DependentUpon>ArtistaStoryBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsistenteAnimacion.resx">
+      <DependentUpon>AsistenteAnimacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cambio.resx">
+      <DependentUpon>Cambio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CambioDirectivo.resx">
+      <DependentUpon>CambioDirectivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Colaboracion.resx">
+      <DependentUpon>Colaboracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorScript.resx">
+      <DependentUpon>ColorScript.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compositing.resx">
+      <DependentUpon>Compositing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CorreccionColor.resx">
+      <DependentUpon>CorreccionColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiaPressentacion.resx">
+      <DependentUpon>DiaPressentacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directivo.resx">
+      <DependentUpon>Directivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Director.resx">
+      <DependentUpon>Director.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DirectorGerente.resx">
+      <DependentUpon>DirectorGerente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Esqueletizacion.resx">
+      <DependentUpon>Esqueletizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExhibicionInternacional.resx">
+      <DependentUpon>ExhibicionInternacional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExhibicionNacional.resx">
+      <DependentUpon>ExhibicionNacional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fondista.resx">
+      <DependentUpon>Fondista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FxPersonaje.resx">
+      <DependentUpon>FxPersonaje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gerente.resx">
+      <DependentUpon>Gerente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrabacionVoz.resx">
+      <DependentUpon>GrabacionVoz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guion.resx">
+      <DependentUpon>Guion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guionista.resx">
+      <DependentUpon>Guionista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idea.resx">
+      <DependentUpon>Idea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Iluminacion.resx">
+      <DependentUpon>Iluminacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ingreso.resx">
+      <DependentUpon>Ingreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IngresoExhibicionInternacional.resx">
+      <DependentUpon>IngresoExhibicionInternacional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IngresoExhibicionNacional.resx">
+      <DependentUpon>IngresoExhibicionNacional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Junta_Directiva.resx">
+      <DependentUpon>Junta_Directiva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout.resx">
+      <DependentUpon>Layout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
